@@ -11,7 +11,6 @@ channels
 apscheduler
 twilio
 pywhatkit
-pynotifier
 transformers
 torch
 datasets
