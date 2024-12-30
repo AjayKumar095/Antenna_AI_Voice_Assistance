@@ -8,15 +8,16 @@
 .custom-navbar-brand {
     font-family: Georgia, serif;
     font-size: 30px !important;
-    background: linear-gradient(to right,#0c7bf1, #3154f4,#fc42da);
+    background: linear-gradient(to right, #0c7bf1, #3154f4, #fc42da);
+    -webkit-background-clip: text; /* For WebKit browsers */
     background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent; /* Ensures transparency */
+    -webkit-text-fill-color: transparent; /* For non-WebKit support */
 }
-.custom-navbar-button {
-    background: linear-gradient(to right, #3154f4,#fc42da);
-}
+
+
 .custom-background {
-    background-image: url('assets/image1.jpg');
+    background-image: url('../Assets/image1.jpg');
     background-size: cover; /* Ensures the image covers the entire container */
     background-position: center; /* Keeps the image centered */
     background-repeat: no-repeat; /* Prevents tiling */

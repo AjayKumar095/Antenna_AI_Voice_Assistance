@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Antenna is a next-generation AI voice assistant that helps you get things done faster and more efficiently.">
     {% load static %}
-    <link rel="icon" href="{% static 'assets/antenna.png' %}">
-     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" href="{% static 'Assets/antenna.png' %}">
+     <link rel="stylesheet" href="{% static 'CSS/common.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Antenna</title>
@@ -41,10 +41,10 @@
 
 
     <!--Nav bar start -->
-    <nav class="navbar navbar-expand-lg bg-body sticky-top" >
+    <nav class="navbar navbar-expand-lg bg-black sticky-top" >
         <div class="container">
          <a class="navbar-brand custom-navbar-brand" href="#">
-            <img src="{% static "assets\antenna.png" %}" alt="logo" style="width: 40px; height: 40px;" class="me-2">
+            <img src="{% static "Assets\antenna.png" %}" alt="logo" style="width: 40px; height: 40px;" class="me-2">
             <b>Antenna</b>
         </a>
           <button class="navbar-toggler" type="button" data-bs-theme="dark" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -120,7 +120,7 @@
           <div class="col col-sm rounded-3 p-4 m-3 mt-5" style="background-color: #111827;">
             <div class="d-flex justify-content-between align-items-center mb-2">
               <p style="color:white;">Voice assistance</p>
-              <img src="assets\more.png" class=" img-fluid" alt="" style="max-width: 50px;">
+              <img src="{% static "Assets/more.png" %}" class=" img-fluid" alt="" style="max-width: 50px;">
           </div>
             <div class="container rounded-2 d-flex justify-content-center align-items-center" style="border-style: dashed !important; border: 1px solid gray; min-height: 270px;">
                 <a href="#" class="d-flex justify-content-center align-items-center">
