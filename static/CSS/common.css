@@ -1,0 +1,53 @@
+.body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000 !important;
+}
+.custom-navbar-brand {
+    font-family: Georgia, serif;
+    font-size: 30px !important;
+    background: linear-gradient(to right,#0c7bf1, #3154f4,#fc42da);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.custom-navbar-button {
+    background: linear-gradient(to right, #3154f4,#fc42da);
+}
+.custom-background {
+    background-image: url('assets/image1.jpg');
+    background-size: cover; /* Ensures the image covers the entire container */
+    background-position: center; /* Keeps the image centered */
+    background-repeat: no-repeat; /* Prevents tiling */
+    width: 100%; /* Full width */
+    height: 90vh; /* Full height of the viewport */
+    display: flex; /* Optional: for aligning content inside, if needed */
+    justify-content: center; /* Optional: horizontal content alignment */
+    align-items: center; /* Optional: vertical content alignment */
+    
+   
+}
+.bg-body {
+    --bs-bg-opacity: 1;
+    background-color: rgb(0, 0, 0) !important;
+}
+
+.custom-background h1 {
+    font-family: Georgia, serif;
+    color: rgb(255, 255, 255);
+    font-size: 60px;
+}
+.custom-background p {
+    color: white;
+    font-size: 20px;
+}
+
+@media (max-width: 768px) {
+    .custom-background h1 {
+        font-size: 40px;
+    }
+    .custom-background p {
+        font-size: 15px;
+    }
+}
