@@ -26,6 +26,8 @@ urlpatterns = [
     path("", views.home, name="index"),
     path("user/", views.user_view, name="user"),
     path("signup/", views.signup_view, name="signup"),
+    path("login/", views.user_login, name="login"),
+    path("logout/", views.user_logout, name="logout"),
 ]
 
 if settings.DEBUG:

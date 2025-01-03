@@ -47,13 +47,14 @@
       <div class="col" style="min-width: 300px; max-width: 500px;">
         {% if messages  %}
           {% for message in messages %}
-               <div class="alert alert-{{ message.tags }} alert-dismissible fade show p-0 m-0 bg-transparent text-white"  role="alert">
-                   {{ message }}
-               </div>
+              
+                   <p class='text-white mb-1'>{{ message }}</p>
+               
            {% endfor %}
         {% endif %}
           <!--Login Form-->
-        <form class="p-4 p-md-5 border bg-transparent  rounded-3 text-white form" id="loginForm" action="" method='post' data-bs-theme="dark">
+        <form class="p-4 p-md-5 border bg-transparent  rounded-3 text-white form" id="loginForm" action="/login/" method='post' data-bs-theme="dark">
+          {% csrf_token %}
           <h4 class="mb-2"> <img class="img-fluid" src="{% static "Assets/antenna.png" %}" alt="" width="50px;" height="50px;"><b>LogIn</b></h4>
             <div class="form-floating mb-3">
               <input type="text" class="form-control" id="floatingInputlogin"  placeholder="Username"  name="Username_login" required>

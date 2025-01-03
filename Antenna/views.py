@@ -100,4 +100,43 @@ def signup_view(request):
         return render(request, 'signup.html')
     except Exception as e:
         #logger.error(f"Error in signup page: {e}")
-        return HttpResponse("Error in signup page")    
+        return HttpResponse("Error in signup page")   
+    
+## Create a login view    
+def user_login(request):
+    try:
+        auth=authentication()
+        
+        if request.method == 'POST':
+            user_credentials = {
+                'username': request.POST.get('Username_login'),
+                'password': request.POST.get('Passward_login')
+            }
+            
+            if not all(user_credentials.values()):
+                return redirect("user")
+            
+            response = auth.login_user(request, user_credentials)
+            
+            if isinstance(response, str):
+                messages.error(request, response)
+                return redirect("user")
+            
+            return render('Antenna.html')
+        
+        #logger.info("Login page accessed")
+        return redirect("user")
+    except Exception as e:
+        #logger.error(f"Error in login page: {e}")
+        return HttpResponse("Error in login page")
+    
+## Create a logout view    
+def user_logout(request):
+    try:
+        auth=authentication()
+        auth.logout_user(request)
+        #logger.info("User logged out")
+        return redirect("index")
+    except Exception as e:
+        #logger.error(f"Error in logout: {e}")
+        return HttpResponse("Error in logout")    

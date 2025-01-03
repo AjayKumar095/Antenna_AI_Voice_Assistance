@@ -23,28 +23,13 @@ class authentication():
     """
     This class handles user authentication.
 
-    The `authenticate_user` method authenticates the user using the provided credentials.
     The `login_user` method logs in the authenticated user.
     The `logout_user` method logs out the user.
     The `signup_user` method creates a new user account.
     """
-    @staticmethod
-    def authenticate_user(username, password):
-        """
-        Authenticates the user using the provided credentials.
-
-        Args:
-            username (str): The username of the user.
-            password (str): The password of the user.
-
-        Returns:
-            User: The authenticated user object.
-        """
-        user = authenticate(username=username, password=password)
-        return user
 
     @staticmethod
-    def login_user(request, user):
+    def login_user(request, user_credentials:dict):
         """
         Logs in the authenticated user.
 
@@ -52,7 +37,26 @@ class authentication():
             request (HttpRequest): The HTTP request object.
             user (User): The authenticated user object.
         """
-        login(request, user)
+        try:
+            if user_credentials:
+               
+               try:
+                     user=User.objects.get(username=user_credentials['username'])
+               except User.DoesNotExist:
+                    return "User does not exist"   
+                
+               if check_password(user_credentials['password'],user.password):
+                    user=authenticate(request,username=user_credentials['username'],password=user_credentials['password'])
+                    if user is not None:
+                        login(request,user)
+                        return user
+                    else:
+                        return "Invalid credentials"  
+            else:
+                return "User credentials not provided"
+         
+        except Exception as e:
+            return "Error while logging in, Please try again later."
 
     @staticmethod
     def logout_user(request):
