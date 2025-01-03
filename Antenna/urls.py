@@ -24,6 +24,8 @@ from django.contrib.auth import  views as auth_views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.home, name="index"),
+    path("user/", views.user_view, name="user"),
+    path("signup/", views.signup_view, name="signup"),
 ]
 
 if settings.DEBUG:

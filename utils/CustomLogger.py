@@ -2,7 +2,7 @@ import logging
 import os
 from datetime import datetime
 
-class CustomLogger:
+class customLogger:
     def __init__(self, log_folder='Log', log_level=logging.DEBUG):
         self.log_folder = log_folder
         self.log_level = log_level
@@ -36,7 +36,7 @@ class CustomLogger:
 
 # Usage example
 if __name__ == "__main__":
-    custom_logger = CustomLogger()
+    custom_logger = customLogger()
     logger = custom_logger.get_logger()
     logger.info("This is an info message")
     logger.error("This is an error message")

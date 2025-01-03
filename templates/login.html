@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" data-bs-theme="auto">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Antenna - User Login">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.118.2">
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+    <title>Antenna - User Login</title>
+
+
+  <style>
+      .form {
+        display: flex;
+        flex-direction: column;
+    }
+    
+      .hidden {
+         display: none;
+      }
+      .custom-background {
+        background-image: url('../static/assets/image5.jpg');
+        background-size: cover; /* Ensures the image covers the entire container */
+        background-position: center; /* Keeps the image centered */
+        background-repeat: no-repeat; /* Prevents tiling */
+        width: 100%; /* Full width */
+        height: 100vh; /* Full height of the viewport */
+        display: flex; /* Optional: for aligning content inside, if needed */
+        justify-content: center; /* Optional: horizontal content alignment */
+        align-items: center; /* Optional: vertical content alignment */
+    }
+
+  </style>    
+  </head>
+  <body>
+
+<div class=" container-fluid justify-content-center align-content-center custom-background d-flex flex-column" style="height: 100vh;">
+  <div class="container px-3 py-3 ">
+      {% if messages  %}
+                 {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+      {% endif %}
+
+    <div class="row align-items-center g-5 py-5 justify-content-center align-content-center " >
+      <div class="col" style="min-width: 300px; max-width: 500px;">
+
+          <!--Login Form-->
+        <form class="p-4 p-md-5 border bg-transparent  rounded-3 text-white form" id="loginForm" action="" method='post' data-bs-theme="dark">
+          <h4 class="mb-2"> <img class="img-fluid" src="{% static "Assets/antenna.png" %}" alt="" width="50px;" height="50px;"><b>LogIn</b></h4>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="floatingInputlogin"  placeholder="Username"  name="Username_login" required>
+              <label for="floatingInputlogin">Username</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" id="floatingPasswordlogin"  name="Passward_login" placeholder="Password" required>
+              <label for="floatingPasswordlogin">Password</label>
+            </div>
+            <div class="checkbox mb-3">
+                <p class="text-start"><a href="#" id="forgotPasswordForm" >Forgot password ?</a></p>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+            <hr class="my-4">
+            <small class="text-white text-end">Don't have an account? <a href="#" id="showSignUp">Sign Up</a></small>
+          </form>
+        
+          <!-- Sign up form -->
+        <form class="p-4 p-md-5 border rounded-3 text-white  bg-transparent form hidden" id="signUpForm" method='POST' action="/signup/" data-bs-theme="dark">
+              {% csrf_token %}
+              <h4 class="mb-2"><img class="img-fluid" src="{% static "Assets/antenna.png" %}" alt="" width="50px;" height="50px;"><b>Sign Up</b></h4>
+            
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="floatingInputsignup" placeholder="Username"  name="signupusername" required>
+                  <label for="floatingInputsignup">Username</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="email" class="form-control" id="floatingemailsignup"  placeholder="Email" name='signupemail' required>
+                  <label for="floatingemailsignup">Email</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="password" class="form-control" id="floatingPasswordsignup"  placeholder="Password" name='signuppassword' required>
+                  <label for="floatingPasswordsignup">Password</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="password" class="form-control" id="floatingConfirmPasswordsignup"  placeholder="Confirm Password" name='signupConfirmpassword' required>
+                  <label for="floatingConfirmPasswordsignup">Confirm Password</label>
+                </div>
+                <button class="w-100 btn btn-lg btn-primary" type="submit">Sign Up</button>
+                <hr class="my-4">
+                <small class="text-white text-end">Already have an account? <a href="#" id="showLogin">Login</a></small>
+              </form>
+          </div>
+        </div>
+  </div>
+</div>
+
+
+<script>
+  document.getElementById('showSignUp').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('loginForm').classList.add('hidden');
+      document.getElementById('signUpForm').classList.remove('hidden');
+  });
+
+  document.getElementById('showLogin').addEventListener('click', function(e) {
+      e.preventDefault();
+      document.getElementById('signUpForm').classList.add('hidden');
+      document.getElementById('loginForm').classList.remove('hidden');
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
